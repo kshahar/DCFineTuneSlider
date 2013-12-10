@@ -184,7 +184,8 @@
 
 	// calculate and set the new value
 	CGFloat range = (self.maximumValue - self.minimumValue);
-	CGFloat newValue = range * (tapPoint.x - CGRectGetMinX(trackRect)) / CGRectGetWidth(trackRect);
+	CGFloat offset = range * (tapPoint.x - CGRectGetMinX(trackRect)) / CGRectGetWidth(trackRect);
+	CGFloat newValue = self.minimumValue + offset;
 	[self setValue:newValue animated:YES];
 
 	[self sendActionsForControlEvents:UIControlEventValueChanged];
